@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Odd/Even Checker</title>
+</head>
+<body>
+  <h2>Odd/Even Checker</h2>
+  <input type="number" id="numInput" placeholder="Enter a number" />
+  <button onclick="checkOddEven()">Check</button>
+  <p id="result"></p>
+
+  <script>
+    function checkOddEven() {
+      const num = parseInt(document.getElementById("numInput").value);
+      const resultEl = document.getElementById("result");
+
+      if (isNaN(num)) {
+        resultEl.innerText = "Please enter a valid number.";
+      } else if (num % 2 === 0) {
+        resultEl.innerText = num + " is Even.";
+      } else {
+        resultEl.innerText = num + " is Odd.";
+      }
+    }
+  </script>
+</body>
+</html>

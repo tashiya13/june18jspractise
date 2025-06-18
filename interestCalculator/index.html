@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Interest Calculator</title>
+</head>
+<body>
+  <h2>Simple Interest Calculator</h2>
+
+  <label for="principal">Principal (₹):</label>
+  <input type="number" id="principal" placeholder="Enter principal"><br><br>
+
+  <label for="rate">Rate (% per year):</label>
+  <input type="number" id="rate" placeholder="Enter rate"><br><br>
+
+  <label for="time">Time (years):</label>
+  <input type="number" id="time" placeholder="Enter time"><br><br>
+
+  <button onclick="calculateInterest()">Calculate Interest</button>
+
+  <h3 id="result"></h3>
+
+  <script>
+    function calculateInterest() {
+      const principal = parseFloat(document.getElementById("principal").value);
+      const rate = parseFloat(document.getElementById("rate").value);
+      const time = parseFloat(document.getElementById("time").value);
+      const resultElement = document.getElementById("result");
+
+      if (isNaN(principal) || isNaN(rate) || isNaN(time)) {
+        resultElement.textContent = "Please enter all values correctly.";
+        return;
+      }
+
+      const interest = (principal * rate * time) / 100;
+      const totalAmount = principal + interest;
+
+      resultElement.innerHTML = `
+        Simple Interest: ₹${interest.toFixed(2)} <br>
+        Total Amount: ₹${totalAmount.toFixed(2)}
+      `;
+    }
+  </script>
+</body>
+</html>
